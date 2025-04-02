@@ -1,113 +1,109 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-.container {
-    width: 80%;
-    max-width: 1200px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    overflow: auto;
+body{
+  overflow: hidden;
+  padding: 0 20px;
+  background: #17a2b8;
 }
-
-/* Tab Styles */
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+::selection{
+  background: rgba(23,162,184,0.3);
 }
-
-.tab-button {
-    background-color: #ffffff;
-    color: #333;
-    border: 2px solid transparent;
-    padding: 12px 30px;
-    margin: 0 15px;
-    cursor: pointer;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 30px;
-    transition: background-color 0.3s, transform 0.3s;
+.wrapper{
+  max-width: 700px;
+  width: 100%;
+  margin: 200px auto;
+  padding: 25px 30px 30px 30px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
 }
-
-.tab-button:hover {
-    background-color: #feb47b;
-    transform: scale(1.1);
-    border: 2px solid #feb47b;
+.wrapper header{
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 20px;
 }
-
-.tab-button.active {
-    background-color: #feb47b;
-    color: white;
-    transform: scale(1.1);
-    border: 2px solid #feb47b;
+.wrapper nav{
+  position: relative;
+  width: 80%;
+  height: 50px;
+  display: flex;
+  align-items: center;
 }
-
-/* Tab Content Styles */
-.tab-content {
-    display: none;
+.wrapper nav label{
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  color: #17a2b8;
+  font-size: 17px;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
 }
-
-.tab-content h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 28px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+.wrapper nav label:hover{
+  background: rgba(23,162,184,0.3);
 }
-
-.video-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 20px;
+#home:checked ~ nav label.home,
+#blog:checked ~ nav label.blog,
+#code:checked ~ nav label.code,
+#help:checked ~ nav label.help,
+  #about:checked ~ nav label.about{
+  color: #fff;
 }
-
-.video {
-    width: 320px;
-    height: 200px;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    background: #222;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+nav label i{
+  padding-right: 7px;
 }
-
-.video:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+nav .slider{
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: #17a2b8;
+  transition: all 0.3s ease;
 }
-
-.video video {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
+input[type="radio"]{
+  display: none;
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .video-gallery {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .tab-button {
-        margin: 5px;
-        padding: 10px 20px;
-        font-size: 14px;
-    }
+#blog:checked ~ nav .slider{
+  left: 20%;
+}
+#code:checked ~ nav .slider{
+  left: 40%;
+}
+#help:checked ~ nav .slider{
+  left: 60%;
+}
+#about:checked ~ nav .slider{
+  left: 80%;
+}
+section .content{
+  display: none;
+  background: #fff;
+}
+#home:checked ~ section .content-1,
+#blog:checked ~ section .content-2,
+#code:checked ~ section .content-3,
+#help:checked ~ section .content-4,
+#about:checked ~ section .content-5{
+  display: block;
+}
+section .content .title{
+  font-size: 21px;
+  font-weight: 500;
+  margin: 30px 0 10px 0;
+}
+section .content p{
+text-align: justify;
 }
