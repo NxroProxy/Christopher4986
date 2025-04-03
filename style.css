@@ -107,3 +107,8 @@ section .content .title{
 section .content p{
 text-align: justify;
 }
+
+.main-video{
+  border-radius: 30px;
+  color:#purple;
+}
